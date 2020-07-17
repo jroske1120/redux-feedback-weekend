@@ -41,7 +41,7 @@ The parts:
 ![comments](wireframes/comments.png)
 
 While there is no nav bar, each part of the form should be at its own route. 
-Clicking next should move the user to the appropriate step in the process.
+[x]Clicking next should move the user to the appropriate step in the process.
 
 ### Input Validation
 
