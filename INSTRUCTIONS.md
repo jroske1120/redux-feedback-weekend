@@ -40,7 +40,7 @@ The parts:
 - Any comments you want to leave?
 ![comments](wireframes/comments.png)
 
-While there is no nav bar, each part of the form should be at its own route. 
+[x]While there is no nav bar, each part of the form should be at its own route. 
 [x]Clicking next should move the user to the appropriate step in the process.
 
 ### Input Validation

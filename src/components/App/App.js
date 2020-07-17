@@ -22,9 +22,9 @@ class App extends Component {
         </header>
 
         <Router>
-        <Link to="/form">Start your Feedback</Link>
+        <Link to="/feeling">Start your Feedback</Link>
 
-          <Route exact path="/form" component={Form} />
+          {/* <Route exact path="/form" component={Form} /> */}
           <Route exact path="/feeling" component={_1Feeling} />
           <Route exact path="/understanding" component={_2Understanding} />
           <Route exact path="/support" component={_3Support} />

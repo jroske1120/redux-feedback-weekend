@@ -12,6 +12,8 @@ class _3Support extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Support</i></h4>
         </header>
+        <input type="number" placeholder="Number from 1-5"/>
+
         <Router>
           <button><Link to="/comment">Next</Link></button>
         </Router>

@@ -12,6 +12,8 @@ class _4Comments extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Comments</i></h4>
         </header>
+        <input type="text" placeholder="Any comments you have"/>
+
         <Router>
           <button><Link to="/review">Review</Link></button>
         </Router>
