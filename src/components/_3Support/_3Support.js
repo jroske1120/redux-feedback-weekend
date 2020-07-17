@@ -5,6 +5,37 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class _3Support extends Component {
+
+  state = {
+    supportToAdd: {
+      support: ''
+    }
+  }
+
+  handleChange = (event, type) => {
+    console.log(event.target.value)
+    this.setState({
+      supportToAdd: {
+        ...this.state.supportToAdd,
+        [type]: event.target.value
+      }
+
+    })
+  }
+
+  addSupport = (event) => {
+    console.log('in addSupport')
+    this.props.dispatch({
+      type: "ADD_SUPPORT",
+      payload: this.state.supportToAdd
+    })
+    this.setState({
+      supportToAdd: {
+        support: '',
+      }
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,10 +43,11 @@ class _3Support extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Support</i></h4>
         </header>
-        <input type="number" placeholder="Number from 1-5"/>
+        <input onChange={(event)=>this.handleChange(event,'support')}
+        type="number" placeholder="Number from 1-5"/>
 
         <Router>
-          <button><Link to="/comment">Next</Link></button>
+          <button onClick={this.addSupport}><Link to="/comment">Next</Link></button>
         </Router>
       </div>
     );

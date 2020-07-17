@@ -13,6 +13,10 @@ const feedbackReducer = (state = [], action) => {
         return [...state, action.payload]
     } else if (action.type === 'ADD_UNDERSTANDING') {
         return [...state, action.payload]
+    }else if (action.type === 'ADD_SUPPORT') {
+        return [...state, action.payload]
+    }else if (action.type === 'ADD_COMMENT') {
+        return [...state, action.payload]
     }
     return state;
 }
