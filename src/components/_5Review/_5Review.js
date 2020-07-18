@@ -12,7 +12,7 @@ class _5Review extends Component {
       feeling: feedback.feeling,
       understanding: feedback.understanding,
       support: feedback.support,
-      comment: feedback.comment,
+      comments: feedback.comments,
     }//end customerr
     console.log('LOOK HERE, CUSTOMER POST:', feedbackToPost)
     axios({
@@ -56,7 +56,7 @@ class _5Review extends Component {
                 {this.props.reduxState.feedbackReducer.support}
               </td>
               <td>
-                {this.props.reduxState.feedbackReducer.comment}
+                {this.props.reduxState.feedbackReducer.comments}
               </td>
             </tr>
           </tbody>

@@ -11,6 +11,28 @@ class Admin extends Component {
     this.viewFeedback()
   }//end componentDidMoutn
 
+  deleteFeedback = (id) => {
+    console.log('in delete');
+    // Confirmation ask to delete. If ok'd, run delete
+    let theyAreSure = window.confirm(
+      "Are you sure you want to remove this feedback?"
+    );
+    if (theyAreSure) {
+      axios({
+        method: 'DELETE',
+        url: `/admin/${id}`
+      }).then((response) => {
+        console.log('back from DELETE:', response);
+        this.viewFeedback();
+      }).catch((error) => {
+        console.log(error);
+        alert('DELETE no worky werk');
+      });
+    } else {
+      console.log('Reconsidered');
+    }
+  }
+
   viewFeedback = () => {
     console.log('in viewFeedback')
     axios.get('/admin')
@@ -33,21 +55,25 @@ class Admin extends Component {
         <table>
           <thead>
             <tr>
+              <th>Flag</th>
               <th>Date</th>
               <th>Feeling</th>
               <th>Understanding</th>
               <th>Support</th>
               <th>Comments</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody>
             {this.state.orders.map((feedback, i) =>
               <tr key={i}>
+                <td><button>Flag</button></td>
                 <td>{feedback.date.split("T")[0]}</td>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>
                 <td>{feedback.comments}</td>
+                <td><button onClick={this.deleteFeedback}>Delete</button></td>
               </tr>)}
           </tbody>
         </table>

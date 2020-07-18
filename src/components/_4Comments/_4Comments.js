@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class _4Comments extends Component {
   state = {
     Feedback: {
-      comment: ''
+      comments: ''
     }
   }
 
@@ -23,7 +23,7 @@ class _4Comments extends Component {
   }
 
   handleSubmit = () => {
-    console.log('in handleSubmit', this.state.Feedback.comment)
+    console.log('in handleSubmit', this.state.Feedback.comments)
     this.props.dispatch({
       type: "ADD_FEEDBACK",
       payload: this.state.Feedback
@@ -37,7 +37,7 @@ class _4Comments extends Component {
         <header className="App-header">
           <h4><i>Comments</i></h4>
         </header>
-        <input onChange={(event) => this.handleChange(event, 'comment')}
+        <input onChange={(event) => this.handleChange(event, 'comments')}
           type="text" placeholder="Any comments you have" />
 
         <button onClick={this.handleSubmit}>Review</button>

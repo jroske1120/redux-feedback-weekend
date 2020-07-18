@@ -35,14 +35,14 @@ adminRouter.get('/', (req, res) => {
 //     })
 // });
 
-// // DELETE an order
-// router.delete('/:id', (req, res) => {
-//     pool.query('DELETE FROM "orders" WHERE id=$1', [req.params.id]).then((result) => {
-//         res.sendStatus(200);
-//     }).catch((error) => {
-//         console.log('Error DELETE /api/order', error);
-//         res.sendStatus(500);
-//     })
-// });
+// DELETE an order
+adminRouter.delete('/:id', (req, res) => {
+    pool.query('DELETE FROM "feedback" WHERE id=$1', [req.params.id]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error DELETE /admin', error);
+        res.sendStatus(500);
+    })
+});
 
 module.exports = adminRouter;
