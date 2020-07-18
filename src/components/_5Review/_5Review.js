@@ -17,7 +17,7 @@ class _5Review extends Component {
     console.log('LOOK HERE, CUSTOMER POST:', feedbackToPost)
     axios({
       method: 'POST',
-      url: '/',
+      url: '/feedback',
       data: feedbackToPost
     })
       .then((response) => {

@@ -6,7 +6,7 @@ const pool = require('./pool');
 
 feedbackRouter.post('/', (req, res) => {
     const feedback = req.body;
-    console.log('in /tasks POST:', feedback);
+    console.log('in / POST:', feedback);
     let queryString = `INSERT INTO "feedback" ( "feeling", "understanding", "support", "comments", "date" ) 
         VALUES ( $1, $2, $3, $4, current_date );`;
     pool.query(queryString,
