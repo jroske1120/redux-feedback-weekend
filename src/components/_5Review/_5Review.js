@@ -22,6 +22,8 @@ class _5Review extends Component {
     })
       .then((response) => {
         console.log('THIS IS FROM OUR POST:', response);
+        alert('Submission success!')
+        this.props.history.push('/');
       })
       .catch((error) => {
         console.log('Error adding customer', error);
@@ -61,9 +63,9 @@ class _5Review extends Component {
             </tr>
           </tbody>
         </table>
-        <Router>
-          <button onClick={this.handleSubmit}><Link to="/">Submit</Link></button>
-        </Router>
+
+          <button onClick={this.handleSubmit}>Submit</button>
+
       </div>
     );
   }
