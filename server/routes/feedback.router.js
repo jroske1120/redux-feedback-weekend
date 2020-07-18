@@ -2,8 +2,9 @@ const express = require('express');
 const feedbackRouter = express.Router();
 
 // DB CONNECTION
-const pool = require('./pool');
+const pool = require('../modules/pool');
 
+//user posts survey results to server
 feedbackRouter.post('/', (req, res) => {
     const feedback = req.body;
     console.log('in / POST:', feedback);

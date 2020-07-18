@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
-const feedbackRouter = require('./modules/feedback.router')
+const feedbackRouter = require('./routes/feedback.router.js')
+const adminRouter = require('./routes/feedbackAdmin.router.js')
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
@@ -11,6 +12,8 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/feedback', feedbackRouter)
+app.use('/admin', adminRouter)
+
 
 
 /** ---------- START SERVER ---------- **/
