@@ -64,8 +64,10 @@ class _5Review extends Component {
           </tbody>
         </table>
 
-          <button onClick={this.handleSubmit}>Submit</button>
-
+        <button onClick={this.handleSubmit}>Submit</button>
+        <Router>
+          <button><Link to="/comment">Back</Link></button>
+        </Router>
       </div>
     );
   }

@@ -24,16 +24,17 @@ class _2Understanding extends Component {
   }
 
   handleSubmit = () => {
-    if (this.state.Feedback.understanding === ""){
+    if (this.state.Feedback.understanding === "") {
       alert('Please select a number!')
-    } else{
-    console.log('in handleSubmit', this.state.Feedback.understanding)
-    this.props.dispatch({
-      type: "ADD_FEEDBACK",
-      payload: this.state.Feedback
-    })
-    this.props.history.push('/support');
-  }}
+    } else {
+      console.log('in handleSubmit', this.state.Feedback.understanding)
+      this.props.dispatch({
+        type: "ADD_FEEDBACK",
+        payload: this.state.Feedback
+      })
+      this.props.history.push('/support');
+    }
+  }
 
   render() {
     return (
@@ -42,11 +43,14 @@ class _2Understanding extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Understanding</i></h4>
         </header>
-        <input onChange={(event)=>this.handleChange(event,'understanding')}
-        type="number" placeholder="Number from 1-5"/>
+        <input onChange={(event) => this.handleChange(event, 'understanding')}
+          type="number" placeholder="Number from 1-5" />
 
-          <button onClick={this.handleSubmit}>Next</button>    
-        </div>
+        <button onClick={this.handleSubmit}>Next</button>
+        <Router>
+          <button><Link to="/feeling">Back</Link></button>
+        </Router>
+      </div>
     );
   }
 }

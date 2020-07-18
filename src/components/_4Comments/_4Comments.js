@@ -41,8 +41,10 @@ class _4Comments extends Component {
         <input onChange={(event) => this.handleChange(event, 'comment')}
           type="text" placeholder="Any comments you have" />
 
-          <button onClick={this.handleSubmit}>Review</button>
-
+        <button onClick={this.handleSubmit}>Review</button>
+        <Router>
+          <button><Link to="/support">Back</Link></button>
+        </Router>
       </div>
     );
   }

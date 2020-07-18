@@ -63,7 +63,7 @@ The parts:
 
 [x]When the submit button is clicked, save the submission in the database. 
 [x]The user should see a submission success page. 
-__They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
+[x]They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
 
 ![understanding](wireframes/page-five.png)
 
