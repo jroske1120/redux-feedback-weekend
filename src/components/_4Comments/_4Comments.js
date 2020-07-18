@@ -35,7 +35,6 @@ class _4Comments extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
           <h4><i>Comments</i></h4>
         </header>
         <input onChange={(event) => this.handleChange(event, 'comment')}

@@ -19,12 +19,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
         </header>
 
         <Router>
         <Link to="/feeling">Start your Feedback</Link>
-
+        </Router>
+        
+        <Router>
           {/* <Route exact path="/form" component={Form} /> */}
           <Route exact path="/feeling" component={_1Feeling} />
           <Route exact path="/understanding" component={_2Understanding} />

@@ -42,8 +42,8 @@ class _1Feeling extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
           <h4><i>Feeling</i></h4>
+
         </header>
         <input onChange={(event) => this.handleChange(event, 'feeling')}
           type="number" placeholder="Number from 1-5" />
