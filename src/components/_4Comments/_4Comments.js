@@ -23,16 +23,13 @@ class _4Comments extends Component {
   }
 
   handleSubmit = () => {
-    if (this.state.Feedback.comment === ""){
-      alert('Please leave a comment!')
-    } else{
     console.log('in handleSubmit', this.state.Feedback.comment)
     this.props.dispatch({
       type: "ADD_FEEDBACK",
       payload: this.state.Feedback
     })
     this.props.history.push('/review');
-  }}
+  }
 
   render() {
     return (
