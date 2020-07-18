@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class _2Understanding extends Component {
 
   state = {
-    understandingToAdd: {
+    Feedback: {
       understanding: ''
     }
   }
@@ -15,26 +15,25 @@ class _2Understanding extends Component {
   handleChange = (event, type) => {
     console.log(event.target.value)
     this.setState({
-      understandingToAdd: {
-        ...this.state.understandingToAdd,
+      Feedback: {
+        ...this.state.Feedback,
         [type]: event.target.value
       }
 
     })
   }
 
-  addUnderstanding = (event) => {
-    console.log('in addUnderstanding')
+  handleSubmit = () => {
+    if (this.state.Feedback.understanding === ""){
+      alert('Please select a number!')
+    } else{
+    console.log('in handleSubmit', this.state.Feedback.understanding)
     this.props.dispatch({
-      type: "ADD_UNDERSTANDING",
-      payload: this.state.understandingToAdd
+      type: "ADD_FEEDBACK",
+      payload: this.state.Feedback
     })
-    this.setState({
-      understandingToAdd: {
-        understanding: '',
-      }
-    })
-  }
+    this.props.history.push('/support');
+  }}
 
   render() {
     return (
@@ -46,9 +45,7 @@ class _2Understanding extends Component {
         <input onChange={(event)=>this.handleChange(event,'understanding')}
         type="number" placeholder="Number from 1-5"/>
 
-        <Router>
-          <button onClick={this.addUnderstanding}><Link to="/support">Next</Link></button>
-        </Router>      
+          <button onClick={this.handleSubmit}>Next</button>    
         </div>
     );
   }

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class _1Feeling extends Component {
 
   state = {
-    feelingToAdd: {
+    Feedback: {
       feeling: ''
     }
   }
@@ -15,26 +15,26 @@ class _1Feeling extends Component {
   handleChange = (event, type) => {
     console.log(event.target.value)
     this.setState({
-      feelingToAdd: {
-        ...this.state.feelingToAdd,
+      Feedback: {
+        ...this.state.Feedback,
         [type]: event.target.value
       }
 
     })
   }
 
-  addFeeling = (event) => {
-    console.log('in addFeeling', event)
+  handleSubmit = () => {
+    if (this.state.Feedback.feeling === ""){
+      alert('Please select a number!')
+    } else{
+    console.log('in handleSubmit', this.state.Feedback.feeling)
     this.props.dispatch({
-      type: "ADD_FEELING",
-      payload: this.state.feelingToAdd
+      type: "ADD_FEEDBACK",
+      payload: this.state.Feedback
     })
-    this.setState({
-      feelingToAdd: {
-        feeling: '',
-      }
-    })
-  }
+    this.props.history.push('/understanding');
+  }}
+
 
 
   render() {
@@ -45,9 +45,9 @@ class _1Feeling extends Component {
           <h4><i>Feeling</i></h4>
         </header>
         <input onChange={(event)=>this.handleChange(event,'feeling')}
-        type="number" placeholder="Number from 1-5" />
+        type="number" placeholder="Number from 1-5"/>
         <Router>
-          <button onClick={this.addFeeling}><Link to="/understanding">Next</Link></button>
+          <button onClick={this.handleSubmit}>Next</button>
         </Router>
       </div>
     );

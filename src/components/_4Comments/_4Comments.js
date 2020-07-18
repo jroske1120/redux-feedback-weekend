@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 class _4Comments extends Component {
   state = {
-    commentToAdd: {
+    Feedback: {
       comment: ''
     }
   }
@@ -14,26 +14,25 @@ class _4Comments extends Component {
   handleChange = (event, type) => {
     console.log(event.target.value)
     this.setState({
-      commentToAdd: {
-        ...this.state.commentToAdd,
+      Feedback: {
+        ...this.state.Feedback,
         [type]: event.target.value
       }
 
     })
   }
 
-  addComment = (event) => {
-    console.log('in addComment')
+  handleSubmit = () => {
+    if (this.state.Feedback.comment === ""){
+      alert('Please leave a comment!')
+    } else{
+    console.log('in handleSubmit', this.state.Feedback.comment)
     this.props.dispatch({
-      type: "ADD_COMMENT",
-      payload: this.state.commentToAdd
+      type: "ADD_FEEDBACK",
+      payload: this.state.Feedback
     })
-    this.setState({
-      commentToAdd: {
-        comment: '',
-      }
-    })
-  }
+    this.props.history.push('/review');
+  }}
 
   render() {
     return (
@@ -45,9 +44,8 @@ class _4Comments extends Component {
         <input onChange={(event) => this.handleChange(event, 'comment')}
           type="text" placeholder="Any comments you have" />
 
-        <Router>
-          <button onClick={this.addComment}><Link to="/review">Review</Link></button>
-        </Router>
+          <button onClick={this.handleSubmit}>Review</button>
+
       </div>
     );
   }

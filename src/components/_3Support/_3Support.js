@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class _3Support extends Component {
 
   state = {
-    supportToAdd: {
+    Feedback: {
       support: ''
     }
   }
@@ -15,26 +15,25 @@ class _3Support extends Component {
   handleChange = (event, type) => {
     console.log(event.target.value)
     this.setState({
-      supportToAdd: {
-        ...this.state.supportToAdd,
+      Feedback: {
+        ...this.state.Feedback,
         [type]: event.target.value
       }
 
     })
   }
 
-  addSupport = (event) => {
-    console.log('in addSupport')
+  handleSubmit = () => {
+    if (this.state.Feedback.support === ""){
+      alert('Please select a number!')
+    } else{
+    console.log('in handleSubmit', this.state.Feedback.support)
     this.props.dispatch({
-      type: "ADD_SUPPORT",
-      payload: this.state.supportToAdd
+      type: "ADD_FEEDBACK",
+      payload: this.state.Feedback
     })
-    this.setState({
-      supportToAdd: {
-        support: '',
-      }
-    })
-  }
+    this.props.history.push('/comment');
+  }}
 
   render() {
     return (
@@ -46,9 +45,8 @@ class _3Support extends Component {
         <input onChange={(event)=>this.handleChange(event,'support')}
         type="number" placeholder="Number from 1-5"/>
 
-        <Router>
-          <button onClick={this.addSupport}><Link to="/comment">Next</Link></button>
-        </Router>
+          <button onClick={this.handleSubmit}>Next</button>
+
       </div>
     );
   }
