@@ -12,15 +12,15 @@ class Admin extends Component {
   }//end componentDidMoutn
 
   deleteFeedback = (id) => {
-    console.log('in delete');
-    // Confirmation ask to delete. If ok'd, run delete
+    console.log('in delete', id);
+    //Confirmation ask to delete. If ok'd, run delete
     let theyAreSure = window.confirm(
       "Are you sure you want to remove this feedback?"
     );
     if (theyAreSure) {
       axios({
         method: 'DELETE',
-        url: `/admin/${id}`
+        url: `/admin/${id}` 
       }).then((response) => {
         console.log('back from DELETE:', response);
         this.viewFeedback();
@@ -73,7 +73,7 @@ class Admin extends Component {
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>
                 <td>{feedback.comments}</td>
-                <td><button onClick={this.deleteFeedback}>Delete</button></td>
+                <td><button onClick={() => this.deleteFeedback(feedback.id)}>Delete</button></td>
               </tr>)}
           </tbody>
         </table>
