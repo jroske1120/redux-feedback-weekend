@@ -23,22 +23,22 @@ adminRouter.get('/', (req, res) => {
 
 
 //Put request to UPDATE to flagged === true
-// taskRouter.put('/:id', (req, res) => {
-//     console.log('/tasks PUT:', req.params.id);
-//     let queryString = `UPDATE todo SET complete = true, date_completed = CURRENT_TIMESTAMP WHERE id = $1;`;
-//     //sets boolean to complete and updates date, both will render
-//     pool.query(queryString, [req.params.id]).then((result) => {
-//         res.send(result.rows);
-//     }).catch((err) => {
-//         console.log(err);
-//         res.sendStatus(500);
-//     })
-// });
+adminRouter.put('/:id', (req, res) => {
+    console.log('/admin PUT:', req.params.id);
+    let queryString = `UPDATE feedback SET flagged = true WHERE id = $1;`;
+    //sets boolean to complete and updates date, both will render
+    pool.query(queryString, [req.params.id]).then((result) => {
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('err', err);
+        res.sendStatus(500);
+    })
+});
 
 // DELETE an order
 adminRouter.delete('/:id', (req, res) => {
     console.log('Delete request for id', req.params.id);
-    let queryString = `DELETE FROM "feedback" WHERE id=$1;`;
+    let queryString = `DELETE FROM feedback WHERE id=$1;`;
     pool.query(queryString, [req.params.id]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {

@@ -33,6 +33,20 @@ class Admin extends Component {
     }
   }
 
+  flagFeedback = (id) => {
+    console.log('in flagFeedback');
+    axios({
+      method: 'PUT',
+      url: `/admin/${id}`
+    }).then((response) => {
+      console.log('back from PUT:', response);
+      this.viewFeedback();
+    }).catch((error) => {
+      console.log(error);
+      alert('Put no worky werk');
+    })
+  }
+
   viewFeedback = () => {
     console.log('in viewFeedback')
     axios.get('/admin')
@@ -67,7 +81,7 @@ class Admin extends Component {
           <tbody>
             {this.state.orders.map((feedback, i) =>
               <tr key={i}>
-                <td><button>Flag</button></td>
+                <td><button onClick={() => this.flagFeedback(feedback.id)}>Flag</button></td>
                 <td>{feedback.date.split("T")[0]}</td>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
