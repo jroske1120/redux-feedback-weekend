@@ -22,8 +22,7 @@ class _5Review extends Component {
     })
       .then((response) => {
         console.log('THIS IS FROM OUR POST:', response);
-        alert('Submission success!')
-        this.props.history.push('/');
+        this.props.history.push('/success');
       })
       .catch((error) => {
         console.log('Error adding customer', error);
