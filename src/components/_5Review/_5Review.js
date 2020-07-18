@@ -5,6 +5,29 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class _5Review extends Component {
+
+  handleSubmit = (event) => {
+    const feedback = this.props.reduxState.feedbackReducer;
+    const feedbackToPost = {
+      feeling: feedback.feeling,
+      understanding: feedback.understanding,
+      support: feedback.support,
+      comment: feedback.comment,
+    }//end customerr
+    console.log('LOOK HERE, CUSTOMER POST:', feedbackToPost)
+    axios({
+      method: 'POST',
+      url: '/',
+      data: feedbackToPost
+    })
+      .then((response) => {
+        console.log('THIS IS FROM OUR POST:', response);
+      })
+      .catch((error) => {
+        console.log('Error adding customer', error);
+      })//end axios
+  }//end handleCheckout
+
   render() {
     return (
       <div className="App">
@@ -23,23 +46,23 @@ class _5Review extends Component {
           </thead>
           <tbody>
             <tr>
-                <td>
-                  {this.props.reduxState.feedbackReducer.feeling}
-                </td>
-                <td>
-                  {this.props.reduxState.feedbackReducer.understanding}
-                </td>
-                <td>
-                  {this.props.reduxState.feedbackReducer.support}
-                </td>
-                <td>
-                  {this.props.reduxState.feedbackReducer.comment}
-                </td>
-              </tr>
+              <td>
+                {this.props.reduxState.feedbackReducer.feeling}
+              </td>
+              <td>
+                {this.props.reduxState.feedbackReducer.understanding}
+              </td>
+              <td>
+                {this.props.reduxState.feedbackReducer.support}
+              </td>
+              <td>
+                {this.props.reduxState.feedbackReducer.comment}
+              </td>
+            </tr>
           </tbody>
         </table>
         <Router>
-          <button><Link to="/">Submit</Link></button>
+          <button onClick={this.handleSubmit}><Link to="/">Submit</Link></button>
         </Router>
       </div>
     );
