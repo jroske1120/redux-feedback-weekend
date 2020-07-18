@@ -79,9 +79,12 @@ class Admin extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.orders.map((feedback, i) =>
+            {this.state.orders.map((feedback, i) => 
               <tr key={i}>
-                <td><button onClick={() => this.flagFeedback(feedback.id)}>Flag</button></td>
+              {!feedback.flagged ? 
+                <td><button onClick={() => 
+                  this.flagFeedback(feedback.id)}>Flag</button></td>
+              : <td>Flagged</td>}
                 <td>{feedback.date.split("T")[0]}</td>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
