@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../App/App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
+import TextField from '@material-ui/core/TextField';
 
 class _4Comments extends Component {
   state = {
@@ -34,16 +36,20 @@ class _4Comments extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h4><i>Comments</i></h4>
-        </header>
-        <input onChange={(event) => this.handleChange(event, 'comments')}
-          type="text" placeholder="Any comments you have" />
-
-        <button onClick={this.handleSubmit}>Review</button>
+          <h4><i>Any comments you want to leave?</i></h4>
         <Router>
           <button><Link to="/support">Back</Link></button>
         </Router>
+        <TextField
+          id="filled-multiline-static"
+          label="Comment"
+          multiline
+          rows={4}
+          onChange={(event) => this.handleChange(event, 'comments')}
+          variant="filled"
+        />
+        <button onClick={this.handleSubmit}>Review</button>
+
       </div>
     );
   }

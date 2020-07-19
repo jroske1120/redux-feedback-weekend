@@ -3,6 +3,12 @@ import axios from 'axios';
 import '../App/App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Header from '../Header/Header';
 
 class _1Feeling extends Component {
 
@@ -36,20 +42,20 @@ class _1Feeling extends Component {
     }
   }
 
-
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h4><i>Feeling</i></h4>
-
-        </header>
-        <input onChange={(event) => this.handleChange(event, 'feeling')}
-          type="number" placeholder="Number from 1-5" />
-        <Router>
-          <button onClick={this.handleSubmit}>Next</button>
-        </Router>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">How are you feeling today?</FormLabel>
+          <RadioGroup row aria-label="feeling" name="feeling" onChange={(event) => this.handleChange(event, 'feeling')}>
+            <FormControlLabel value="1" control={<Radio />} labelPlacement="top" label="1" />
+            <FormControlLabel value="2" control={<Radio />} labelPlacement="top" label="2" />
+            <FormControlLabel value="3" control={<Radio />} labelPlacement="top" label="3" />
+            <FormControlLabel value="4" control={<Radio />} labelPlacement="top" label="4" />
+            <FormControlLabel value="5" control={<Radio />} labelPlacement="top" label="5" />
+          </RadioGroup>
+        </FormControl>
+        <button onClick={this.handleSubmit}>Next</button>
       </div>
     );
   }

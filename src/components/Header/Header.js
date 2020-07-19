@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -25,10 +26,12 @@ class Header extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <AppBar className={classes.header} position="static">
-        <Typography className={classes.mainTitle} variant='h2'>Feedback!</Typography>
-        <Typography className={classes.phrase} variant='h5'>Don't forget it...</Typography>
-      </AppBar>
+      <Router>
+        <AppBar className={classes.header} position="static">
+          <Typography className={classes.mainTitle} variant='h2'>Feedback!</Typography>
+          <Typography className={classes.phrase} variant='h5'><Link to="/feeling">Click here to start!</Link></Typography>
+        </AppBar>
+      </Router >
     );
   }
 }

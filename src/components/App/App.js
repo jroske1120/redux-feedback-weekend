@@ -19,11 +19,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-
-
-        <Router>
-        <Link to="/feeling">Start your Feedback</Link>
-        </Router>
         
         <Router>
           {/* <Route exact path="/form" component={Form} /> */}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../App/App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
 
 class _5Review extends Component {
 
@@ -32,9 +33,8 @@ class _5Review extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h4><i>Review</i></h4>
-        </header>
+
+
         <table>
           <thead>
             <tr>
