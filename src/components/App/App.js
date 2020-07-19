@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import SuccessPage from '../SuccessPage/SuccessPage';
 import _1Feeling from '../_1Feeling/_1Feeling';
 import _2Understanding from '../_2Understanding/_2Understanding';
@@ -11,9 +10,6 @@ import _5Review from '../_5Review/_5Review';
 import Admin from '../Admin/Admin';
 import Header from '../Header/Header';
 
-
-
-
 class App extends Component {
   render() {
     return (
@@ -21,8 +17,7 @@ class App extends Component {
         <Header />
         
         <Router>
-          {/* <Route exact path="/form" component={Form} /> */}
-          <Route exact path="/feeling" component={_1Feeling} />
+          <Route exact path="/" component={_1Feeling} />
           <Route exact path="/understanding" component={_2Understanding} />
           <Route exact path="/support" component={_3Support} />
           <Route exact path="/comment" component={_4Comments} />

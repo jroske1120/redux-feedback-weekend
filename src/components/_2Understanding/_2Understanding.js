@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../App/App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '../Header/Header';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import Button from '@material-ui/core/Button';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import IconButton from '@material-ui/core/IconButton';
 import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
@@ -22,6 +19,7 @@ class _2Understanding extends Component {
     }
   }
 
+  // handle any change in the answer
   handleChange = (event, type) => {
     console.log(event.target.value)
     this.setState({
@@ -34,10 +32,13 @@ class _2Understanding extends Component {
   }
 
   handleSubmit = () => {
+    // conditional that will only advance to next page
+    // if a response is provided
     if (this.state.Feedback.understanding === "") {
       alert('Please select a number!')
     } else {
       console.log('in handleSubmit', this.state.Feedback.understanding)
+      // sends response to feedbackReducer
       this.props.dispatch({
         type: "ADD_FEEDBACK",
         payload: this.state.Feedback
@@ -51,14 +52,19 @@ class _2Understanding extends Component {
       <div className="App">
         <Router>
           <IconButton>
-            <Link to="/feeling">
-              <NavigateBeforeRoundedIcon fontSize="large" color="primary"/>
-              </Link>
+            <Link to="/">
+              <NavigateBeforeRoundedIcon
+                fontSize="large" color="primary" />
+            </Link>
           </IconButton>
         </Router>
         <FormControl component="fieldset">
-          <FormLabel component="legend">How well are you understanding the content?</FormLabel>
-          <RadioGroup row aria-label="understanding" name="understanding" onChange={(event) => this.handleChange(event, 'understanding')}>
+          <FormLabel component="legend">
+            How well are you understanding the content?
+            </FormLabel>
+          <RadioGroup row
+            aria-label="understanding" name="understanding"
+            onChange={(event) => this.handleChange(event, 'understanding')}>
             <FormControlLabel value="1" control={<Radio />}
               labelPlacement="bottom" label="Not at all" />
             <FormControlLabel value="2" control={<Radio />}
@@ -71,9 +77,11 @@ class _2Understanding extends Component {
               labelPlacement="bottom" label="Great!" />
           </RadioGroup>
         </FormControl>
-        <IconButton size="large" color="primary"
+        <IconButton
+          size="large" color="primary"
           onClick={this.handleSubmit}>
-          <NavigateNextRoundedIcon fontSize="large" />
+          <NavigateNextRoundedIcon
+            fontSize="large" />
         </IconButton>
       </div>
     );

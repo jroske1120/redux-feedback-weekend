@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../App/App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '../Header/Header';
 import Button from '@material-ui/core/Button';
 
 class _5Review extends Component {

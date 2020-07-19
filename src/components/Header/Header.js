@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -37,7 +37,7 @@ class Header extends Component {
           <Typography
             className={classes.phrase}
             variant='h5'>
-            <Link to="/feeling">
+            <Link to="/">
               Click here to start!
               </Link>
           </Typography>

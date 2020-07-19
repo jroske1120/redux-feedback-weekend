@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../App/App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import Header from '../Header/Header';
-import Button from '@material-ui/core/Button';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import IconButton from '@material-ui/core/IconButton';
 
@@ -21,6 +17,7 @@ class _1Feeling extends Component {
     }
   }
 
+  // handle any change in the answer
   handleChange = (event, type) => {
     console.log(event.target.value)
     this.setState({
@@ -33,10 +30,13 @@ class _1Feeling extends Component {
   }
 
   handleSubmit = () => {
+    // conditional that will only advance to next page
+    // if a response is provided
     if (this.state.Feedback.feeling === "") {
       alert('Please select a number!')
     } else {
       console.log('in handleSubmit', this.state.Feedback.feeling)
+      // sends response to feedbackReducer
       this.props.dispatch({
         type: "ADD_FEEDBACK",
         payload: this.state.Feedback
@@ -49,8 +49,11 @@ class _1Feeling extends Component {
     return (
       <div className="App">
         <FormControl component="fieldset">
-          <FormLabel component="legend">How are you feeling today?</FormLabel>
-          <RadioGroup row aria-label="feeling" name="feeling" onChange={(event) => this.handleChange(event, 'feeling')}>
+          <FormLabel component="legend">
+            How are you feeling today?
+            </FormLabel>
+          <RadioGroup row aria-label="feeling" name="feeling"
+            onChange={(event) => this.handleChange(event, 'feeling')}>
             <FormControlLabel value="1" control={<Radio />}
               labelPlacement="bottom" label="Awful" />
             <FormControlLabel value="2" control={<Radio />}

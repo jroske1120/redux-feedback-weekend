@@ -7,6 +7,7 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
+// Store different responses as object
 const feedbackReducer = (state = { feeling: 0, understanding: 0, support: 0, comment: '' }, action) => {
     console.log('in feedbackReducer', action.payload)
     if (action.type === 'ADD_FEEDBACK') {
@@ -15,16 +16,9 @@ const feedbackReducer = (state = { feeling: 0, understanding: 0, support: 0, com
     return state;
 }
 
-
-
-
-
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer
-        // understandingReducer
-        // supportReducer
-        // commentReducer
     }),
     applyMiddleware(logger)
 );
