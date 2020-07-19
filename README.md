@@ -1,11 +1,10 @@
-# PROJECT NAME
-React Photo Gallery
+# React/Redux Feedback App
 
 ## Description
 
 _Duration: 2 Days_
 
-This is Joel Roske's full stack React App.
+This is Joel Roske's full stack React/Redux App.
 
 ## Screen Shot
 ![Joel Roske Redux Feedback](wireframes/Redux-feedback-feeling.png)
