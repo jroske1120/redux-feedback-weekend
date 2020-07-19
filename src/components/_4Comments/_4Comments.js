@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+import IconButton from '@material-ui/core/IconButton';
+import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
 
 class _4Comments extends Component {
   state = {
@@ -37,7 +40,16 @@ class _4Comments extends Component {
   render() {
     return (
       <div className="App">
-          <h4><i>Any comments you want to leave?</i></h4>
+        <h4><i>Any comments you want to leave?</i></h4>
+        <Router>
+          <IconButton >
+            <Link to="/support">
+              <NavigateBeforeRoundedIcon
+                fontSize="large"
+                color="primary" />
+            </Link>
+          </IconButton>
+        </Router>
         <TextField
           id="filled-multiline-static"
           label="Comment"
@@ -46,16 +58,12 @@ class _4Comments extends Component {
           onChange={(event) => this.handleChange(event, 'comments')}
           variant="filled"
         />
-        <br></br>
-                <Router>
-          <Button variant="contained" size="small" color="primary">
-            <Link to="/support">Back</Link>
-            </Button>
-        </Router>
-        <span className="space-span"></span>
-        <Button variant="contained" size="small" color="primary"
-        onClick={this.handleSubmit}>Review</Button>
-
+        <IconButton
+          onClick={this.handleSubmit}>
+          <NavigateNextRoundedIcon
+            color="primary"
+            fontSize="large" />
+        </IconButton>
       </div>
     );
   }

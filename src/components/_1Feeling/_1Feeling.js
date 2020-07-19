@@ -10,6 +10,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Header from '../Header/Header';
 import Button from '@material-ui/core/Button';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+import IconButton from '@material-ui/core/IconButton';
 
 class _1Feeling extends Component {
 
@@ -49,20 +51,22 @@ class _1Feeling extends Component {
         <FormControl component="fieldset">
           <FormLabel component="legend">How are you feeling today?</FormLabel>
           <RadioGroup row aria-label="feeling" name="feeling" onChange={(event) => this.handleChange(event, 'feeling')}>
-            <FormControlLabel value="1" control={<Radio />} 
-            labelPlacement="bottom" label="Awful" />
-            <FormControlLabel value="2" control={<Radio />} 
-            labelPlacement="bottom" label="Not good" />
-            <FormControlLabel value="3" control={<Radio />} 
-            labelPlacement="bottom" label="OK" />
-            <FormControlLabel value="4" control={<Radio />} 
-            labelPlacement="bottom" label="Good" />
-            <FormControlLabel value="5" control={<Radio />} 
-            labelPlacement="bottom" label="Great!" />
+            <FormControlLabel value="1" control={<Radio />}
+              labelPlacement="bottom" label="Awful" />
+            <FormControlLabel value="2" control={<Radio />}
+              labelPlacement="bottom" label="Not good" />
+            <FormControlLabel value="3" control={<Radio />}
+              labelPlacement="bottom" label="OK" />
+            <FormControlLabel value="4" control={<Radio />}
+              labelPlacement="bottom" label="Good" />
+            <FormControlLabel value="5" control={<Radio />}
+              labelPlacement="bottom" label="Great!" />
           </RadioGroup>
         </FormControl>
-        <Button variant="contained" size="small" color="primary"
-         onClick={this.handleSubmit}>Next</Button>
+        <IconButton size="large" color="primary"
+          onClick={this.handleSubmit}>
+          <NavigateNextRoundedIcon fontSize="large" />
+        </IconButton>
       </div>
     );
   }

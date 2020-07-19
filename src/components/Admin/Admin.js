@@ -6,6 +6,7 @@ import './Admin.css';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import FlagRounded from '@material-ui/icons/FlagRounded';
+import DeleteIcon from '@material-ui/icons/Delete';
 class Admin extends Component {
 
   state = { orders: [] }
@@ -102,8 +103,8 @@ class Admin extends Component {
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>
                 <td className="leftAlign">{feedback.comments}</td>
-                <td><Button variant="contained" size="small" color="secondary"
-                  onClick={() => this.deleteFeedback(feedback.id)}>Delete</Button></td>
+                <td><IconButton variant="contained" size="small" color="secondary"
+                  onClick={() => this.deleteFeedback(feedback.id)}><DeleteIcon/></IconButton></td>
               </tr>)}
           </tbody>
         </table>

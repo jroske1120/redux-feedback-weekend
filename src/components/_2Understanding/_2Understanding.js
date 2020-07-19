@@ -10,6 +10,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+import IconButton from '@material-ui/core/IconButton';
+import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
 
 class _2Understanding extends Component {
 
@@ -47,9 +50,11 @@ class _2Understanding extends Component {
     return (
       <div className="App">
         <Router>
-          <Button variant="contained" size="small" color="primary">
-            <Link to="/feeling">Back</Link>
-          </Button>
+          <IconButton>
+            <Link to="/feeling">
+              <NavigateBeforeRoundedIcon fontSize="large" color="primary"/>
+              </Link>
+          </IconButton>
         </Router>
         <FormControl component="fieldset">
           <FormLabel component="legend">How well are you understanding the content?</FormLabel>
@@ -66,8 +71,10 @@ class _2Understanding extends Component {
               labelPlacement="bottom" label="Great!" />
           </RadioGroup>
         </FormControl>
-        <Button variant="contained" size="small" color="primary"
-          onClick={this.handleSubmit}>Next</Button>
+        <IconButton size="large" color="primary"
+          onClick={this.handleSubmit}>
+          <NavigateNextRoundedIcon fontSize="large" />
+        </IconButton>
       </div>
     );
   }
