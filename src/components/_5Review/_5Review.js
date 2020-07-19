@@ -55,7 +55,7 @@ class _5Review extends Component {
               <td>
                 {this.props.reduxState.feedbackReducer.support}
               </td>
-              <td>
+              <td className="leftAlign">
                 {this.props.reduxState.feedbackReducer.comments}
               </td>
             </tr>

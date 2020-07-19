@@ -101,7 +101,7 @@ class Admin extends Component {
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>
-                <td>{feedback.comments}</td>
+                <td className="leftAlign">{feedback.comments}</td>
                 <td><Button variant="contained" size="small" color="secondary"
                   onClick={() => this.deleteFeedback(feedback.id)}>Delete</Button></td>
               </tr>)}
