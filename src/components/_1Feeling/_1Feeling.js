@@ -48,11 +48,16 @@ class _1Feeling extends Component {
         <FormControl component="fieldset">
           <FormLabel component="legend">How are you feeling today?</FormLabel>
           <RadioGroup row aria-label="feeling" name="feeling" onChange={(event) => this.handleChange(event, 'feeling')}>
-            <FormControlLabel value="1" control={<Radio />} labelPlacement="top" label="1" />
-            <FormControlLabel value="2" control={<Radio />} labelPlacement="top" label="2" />
-            <FormControlLabel value="3" control={<Radio />} labelPlacement="top" label="3" />
-            <FormControlLabel value="4" control={<Radio />} labelPlacement="top" label="4" />
-            <FormControlLabel value="5" control={<Radio />} labelPlacement="top" label="5" />
+            <FormControlLabel value="1" control={<Radio />} 
+            labelPlacement="bottom" label="Awful" />
+            <FormControlLabel value="2" control={<Radio />} 
+            labelPlacement="bottom" label="Not good" />
+            <FormControlLabel value="3" control={<Radio />} 
+            labelPlacement="bottom" label="OK" />
+            <FormControlLabel value="4" control={<Radio />} 
+            labelPlacement="bottom" label="Good" />
+            <FormControlLabel value="5" control={<Radio />} 
+            labelPlacement="bottom" label="Great!" />
           </RadioGroup>
         </FormControl>
         <button onClick={this.handleSubmit}>Next</button>

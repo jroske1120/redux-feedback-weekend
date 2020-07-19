@@ -51,11 +51,16 @@ class _3Support extends Component {
         <FormControl component="fieldset">
           <FormLabel component="legend">How well do you feel supported?</FormLabel>
           <RadioGroup row aria-label="support" name="support" onChange={(event) => this.handleChange(event, 'support')}>
-            <FormControlLabel value="1" control={<Radio />} labelPlacement="top" label="1" />
-            <FormControlLabel value="2" control={<Radio />} labelPlacement="top" label="2" />
-            <FormControlLabel value="3" control={<Radio />} labelPlacement="top" label="3" />
-            <FormControlLabel value="4" control={<Radio />} labelPlacement="top" label="4" />
-            <FormControlLabel value="5" control={<Radio />} labelPlacement="top" label="5" />
+            <FormControlLabel value="1" control={<Radio />} 
+            labelPlacement="bottom" label="Not at all" />
+            <FormControlLabel value="2" control={<Radio />} 
+            labelPlacement="bottom" label="Not well" />
+            <FormControlLabel value="3" control={<Radio />} 
+            labelPlacement="bottom" label="OK" />
+            <FormControlLabel value="4" control={<Radio />} 
+            labelPlacement="bottom" label="Good" />
+            <FormControlLabel value="5" control={<Radio />} 
+            labelPlacement="bottom" label="Great" />
           </RadioGroup>
         </FormControl>
         <button onClick={this.handleSubmit}>Next</button>
