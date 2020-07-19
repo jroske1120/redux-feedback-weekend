@@ -43,7 +43,7 @@ This is Joel Roske's full stack React/Redux App for anonymous feedback. A user p
 
 ## Built With
 
-The full stack! React, Redux, JSX, Javascript, CSS, Axios, Node, Express, Material UI, and Postgres with SQL.
+The full stack! React, Redux, JSX, Javascript, CSS, Axios, Node, Express, Material UI, and Postgres with SQL. Project also deployed to [Heroku](https://peaceful-lowlands-75651.herokuapp.com/#/).
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality, well as the members of my cohort, Paxos.
