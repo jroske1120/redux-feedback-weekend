@@ -4,7 +4,7 @@
 
 _Duration: 2 Days_
 
-This is Joel Roske's full stack React/Redux App.
+This is Joel Roske's full stack React/Redux App for anonymous feedback. A user progresses through the pages of a form, their information is stored in redux and submitted to the server. An admin then has options to view, flag, or delete feedback.
 
 ## Screen Shot
 ![Joel Roske Redux Feedback](wireframes/Redux-feedback-feeling.png)
