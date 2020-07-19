@@ -2,27 +2,29 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class SuccessPage extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Success!</i></h4>
-        </header>
-
-        {/* image for success here? */}
-        <Router>
-          <button><Link to="/feeling">Take Another Survey!</Link></button>
-        </Router>
+        <img src="https://lh3.googleusercontent.com/proxy/N_hsQzbsPL9c7QEfw1DlFV_RZMl-VnKzGfNRHdfLENqNoahtELN97Xxm9CiKRZfJsoFEO7nK6f5pWJxA0EV77jtd8GCRMdQY"/>
+          <br></br>
+          <Router>
+            <Button variant="contained" 
+            size="small" color="primary">
+              <Link to="/feeling">
+                Take Another Survey!
+                </Link>
+                </Button>
+          </Router>
               </div>
     );
   }
 }
 
 const putReduxStateOnProps = (reduxState) => ({
-  reduxState
-})
+          reduxState
+        })
 
 export default connect(putReduxStateOnProps)(SuccessPage);

@@ -1,0 +1,46 @@
+section:nth-of-type(odd) {
+  /* background-color: #FFD4CA; */
+  background-color: #f7f4ee;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section {
+  border-radius: 0.5em;
+  box-shadow: 3px 4px 5px #554825;
+  padding: 1.5em;
+  margin: 1em;
+}
+
+/***********   TABLES   ***********/
+table {
+  width: 100%;
+  background-color: #f9f6f1;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.5em;
+  text-align: left;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #f3eee3;
+}
+
+thead tr {
+  background-color: #b4975a;
+  color: #0e1320;
+}

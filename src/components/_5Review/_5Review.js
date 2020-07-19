@@ -4,6 +4,7 @@ import '../App/App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
+import Button from '@material-ui/core/Button';
 
 class _5Review extends Component {
 
@@ -33,15 +34,14 @@ class _5Review extends Component {
   render() {
     return (
       <div className="App">
-
-
-        <table>
+      <section>  
+      <table>
           <thead>
             <tr>
-              <th>-Your Feeling-</th>
-              <th>-Your Understanding-</th>
-              <th>-Your Support-</th>
-              <th>-Your Comment-</th>
+              <th>Your Feeling</th>
+              <th>Your Understanding</th>
+              <th>Your Support</th>
+              <th>Your Comment</th>
             </tr>
           </thead>
           <tbody>
@@ -61,11 +61,12 @@ class _5Review extends Component {
             </tr>
           </tbody>
         </table>
-
-        <button onClick={this.handleSubmit}>Submit</button>
-        <Router>
-          <button><Link to="/comment">Back</Link></button>
-        </Router>
+        </section>
+        <Button variant="contained" size="small" color="primary">
+        <Link to="/comment">Back</Link>
+        </Button>
+        <Button variant="contained" size="small" color="primary"
+         onClick={this.handleSubmit}>Submit</Button>
       </div>
     );
   }

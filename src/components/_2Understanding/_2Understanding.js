@@ -9,6 +9,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 
 class _2Understanding extends Component {
 
@@ -46,24 +47,27 @@ class _2Understanding extends Component {
     return (
       <div className="App">
         <Router>
-          <button><Link to="/feeling">Back</Link></button>
+          <Button variant="contained" size="small" color="primary">
+            <Link to="/feeling">Back</Link>
+          </Button>
         </Router>
         <FormControl component="fieldset">
           <FormLabel component="legend">How well are you understanding the content?</FormLabel>
           <RadioGroup row aria-label="understanding" name="understanding" onChange={(event) => this.handleChange(event, 'understanding')}>
-            <FormControlLabel value="1" control={<Radio />} 
-            labelPlacement="bottom" label="Not at all" />
-            <FormControlLabel value="2" control={<Radio />} 
-            labelPlacement="bottom" label="Not well" />
-            <FormControlLabel value="3" control={<Radio />} 
-            labelPlacement="bottom" label="OK" />
-            <FormControlLabel value="4" control={<Radio />} 
-            labelPlacement="bottom" label="Good" />
-            <FormControlLabel value="5" control={<Radio />} 
-            labelPlacement="bottom" label="Great!" />
+            <FormControlLabel value="1" control={<Radio />}
+              labelPlacement="bottom" label="Not at all" />
+            <FormControlLabel value="2" control={<Radio />}
+              labelPlacement="bottom" label="Not well" />
+            <FormControlLabel value="3" control={<Radio />}
+              labelPlacement="bottom" label="OK" />
+            <FormControlLabel value="4" control={<Radio />}
+              labelPlacement="bottom" label="Good" />
+            <FormControlLabel value="5" control={<Radio />}
+              labelPlacement="bottom" label="Great!" />
           </RadioGroup>
         </FormControl>
-        <button onClick={this.handleSubmit}>Next</button>
+        <Button variant="contained" size="small" color="primary"
+          onClick={this.handleSubmit}>Next</Button>
       </div>
     );
   }

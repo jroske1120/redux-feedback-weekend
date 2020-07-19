@@ -9,6 +9,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 
 class _3Support extends Component {
 
@@ -46,7 +47,9 @@ class _3Support extends Component {
     return (
       <div className="App">
         <Router>
-          <button><Link to="/understanding">Back</Link></button>
+        <Button variant="contained" size="small" color="primary">
+            <Link to="/understanding">Back</Link>
+            </Button>
         </Router>
         <FormControl component="fieldset">
           <FormLabel component="legend">How well do you feel supported?</FormLabel>
@@ -63,7 +66,8 @@ class _3Support extends Component {
             labelPlacement="bottom" label="Great" />
           </RadioGroup>
         </FormControl>
-        <button onClick={this.handleSubmit}>Next</button>
+        <Button variant="contained" size="small" color="primary"
+        onClick={this.handleSubmit}>Next</Button>
       </div>
     );
   }

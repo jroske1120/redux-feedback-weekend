@@ -7,8 +7,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   header: {
-    backgroundColor: '#485167',
-    marginBottom: '100px'
+    backgroundColor: '#3f51b5',
+    marginBottom: '10px'
   },
   mainTitle: {
     color: '#fff',
@@ -27,9 +27,20 @@ class Header extends Component {
     const { classes } = this.props;
     return (
       <Router>
-        <AppBar className={classes.header} position="static">
-          <Typography className={classes.mainTitle} variant='h2'>Feedback!</Typography>
-          <Typography className={classes.phrase} variant='h5'><Link to="/feeling">Click here to start!</Link></Typography>
+        <AppBar
+          className={classes.header} position="static">
+          <Typography
+            className={classes.mainTitle}
+            variant='h2'>
+            Feedback!
+          </Typography>
+          <Typography
+            className={classes.phrase}
+            variant='h5'>
+            <Link to="/feeling">
+              Click here to start!
+              </Link>
+          </Typography>
         </AppBar>
       </Router >
     );

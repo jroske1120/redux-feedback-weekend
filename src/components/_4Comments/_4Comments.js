@@ -5,6 +5,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class _4Comments extends Component {
   state = {
@@ -38,7 +39,9 @@ class _4Comments extends Component {
       <div className="App">
           <h4><i>Any comments you want to leave?</i></h4>
         <Router>
-          <button><Link to="/support">Back</Link></button>
+          <Button variant="contained" size="small" color="primary">
+            <Link to="/support">Back</Link>
+            </Button>
         </Router>
         <TextField
           id="filled-multiline-static"
@@ -48,7 +51,8 @@ class _4Comments extends Component {
           onChange={(event) => this.handleChange(event, 'comments')}
           variant="filled"
         />
-        <button onClick={this.handleSubmit}>Review</button>
+        <Button variant="contained" size="small" color="primary"
+        onClick={this.handleSubmit}>Review</Button>
 
       </div>
     );

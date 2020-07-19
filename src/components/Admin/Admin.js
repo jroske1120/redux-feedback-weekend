@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import './Admin.css';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import FlagRounded from '@material-ui/icons/FlagRounded';
 class Admin extends Component {
 
   state = { orders: [] }
@@ -62,10 +65,8 @@ class Admin extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Admin Page</i></h4>
-        </header>
+        <h2><i>Admin Page</i></h2>
+        <section>
         <table>
           <thead>
             <tr>
@@ -85,22 +86,28 @@ class Admin extends Component {
             {this.state.orders.map((feedback, i) =>
               <tr key={i}>
                 {!feedback.flagged ?
-                  <td><button onClick={() =>
-                    this.flagFeedback(feedback.id)}>
-                    Flag</button></td>
-                  : <td>Flagged</td>}
+                  <td>
+                    <FlagRounded
+                      cursor="pointer"
+                      color="primary"
+                      aria-label="flag feedback"
+                      onClick={() =>
+                        this.flagFeedback(feedback.id)} />
+                  </td>
+                  : <td>
+                    <FlagRounded color="secondary" />
+                  </td>}
                 <td>{feedback.date.split("T")[0]}</td>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
                 <td>{feedback.support}</td>
                 <td>{feedback.comments}</td>
-                <td><button onClick={() => this.deleteFeedback(feedback.id)}>Delete</button></td>
+                <td><Button variant="contained" size="small" color="secondary"
+                  onClick={() => this.deleteFeedback(feedback.id)}>Delete</Button></td>
               </tr>)}
           </tbody>
         </table>
-        {/* image for success here? */}
-        <Router>
-        </Router>
+        </section>
       </div>
     );
   }
