@@ -8,8 +8,7 @@ _Duration: 2 Days_
 This is Joel Roske's full stack React App.
 
 ## Screen Shot
-![Joel Roske Redux Feedback](wireframes/Redux-feedback-feeling.png
-)
+![Joel Roske Redux Feedback](wireframes/Redux-feedback-feeling.png)
 
 ### Prerequisites
 
@@ -35,16 +34,13 @@ This is Joel Roske's full stack React App.
 4. If the user submits, their feedback is posted to the server using an axios POST request.
 5. If the submission is successful, the user is brought to a success page.
 6. The link to restart the survey is in the headline of each page.
-![Joel Roske Redux Feedback](wireframes/Redux-feedback-comment.png
-)![Joel Roske Redux Feedback](wireframes/Redux-feedback-review.png
-)
+![Joel Roske Redux Feedback](wireframes/Redux-feedback-review.png)
 ### Admin
 
 1. `/admin` is where an admin can view feedback results in a table (axios GET request).
 2. Date of submission is available here, as well as the option to Flag a comment for review. If flagged, the flag icon will change from blue to red (axios PUT request).
 3. Admin also has the option to delete feedback from the server. They are asked to confirm, and feedback is deleted upon confirmation (axios DELETE request).
-![Joel Roske Redux Feedback](wireframes/Redux-feedback-admin.png
-)
+![Joel Roske Redux Feedback](wireframes/Redux-feedback-admin.png)
 ## Built With
 
 The full stack! React, Redux JSX, Javascript, CSS, Axios, Node, Express, Material UI, and Postgres with SQL.
