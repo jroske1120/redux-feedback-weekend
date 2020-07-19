@@ -42,7 +42,7 @@ This is Joel Roske's full stack React/Redux App for anonymous feedback. A user p
 ![Joel Roske Redux Feedback](wireframes/Redux-feedback-admin.png)
 ## Built With
 
-The full stack! React, Redux JSX, Javascript, CSS, Axios, Node, Express, Material UI, and Postgres with SQL.
+The full stack! React, Redux, JSX, Javascript, CSS, Axios, Node, Express, Material UI, and Postgres with SQL.
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality, well as the members of my cohort, Paxos.
