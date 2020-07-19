@@ -20,7 +20,7 @@ class Admin extends Component {
     if (theyAreSure) {
       axios({
         method: 'DELETE',
-        url: `/admin/${id}` 
+        url: `/admin/${id}`
       }).then((response) => {
         console.log('back from DELETE:', response);
         this.viewFeedback();
@@ -79,12 +79,16 @@ class Admin extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.orders.map((feedback, i) => 
+            {/* Ternary operator to display Flag
+                  Button if not already flagged */}
+
+            {this.state.orders.map((feedback, i) =>
               <tr key={i}>
-              {!feedback.flagged ? 
-                <td><button onClick={() => 
-                  this.flagFeedback(feedback.id)}>Flag</button></td>
-              : <td>Flagged</td>}
+                {!feedback.flagged ?
+                  <td><button onClick={() =>
+                    this.flagFeedback(feedback.id)}>
+                    Flag</button></td>
+                  : <td>Flagged</td>}
                 <td>{feedback.date.split("T")[0]}</td>
                 <td>{feedback.feeling}</td>
                 <td>{feedback.understanding}</td>
