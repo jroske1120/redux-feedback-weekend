@@ -1,9 +1,19 @@
+body{
+  background-image: url("https://www.keplertech.ae/wp-content/uploads/2020/05/50-Beautiful-and-Minimalist-Presentation-Backgrounds-040.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #3f51b5;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -17,3 +27,10 @@
   font-size: large;
 }
 
+.space-span{
+  margin: 30px;
+}
+
+#success {
+  max-width: 300px;
+}

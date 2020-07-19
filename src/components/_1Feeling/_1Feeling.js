@@ -3,6 +3,15 @@ import axios from 'axios';
 import '../App/App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Header from '../Header/Header';
+import Button from '@material-ui/core/Button';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+import IconButton from '@material-ui/core/IconButton';
 
 class _1Feeling extends Component {
 
@@ -36,20 +45,28 @@ class _1Feeling extends Component {
     }
   }
 
-
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h4><i>Feeling</i></h4>
-
-        </header>
-        <input onChange={(event) => this.handleChange(event, 'feeling')}
-          type="number" placeholder="Number from 1-5" />
-        <Router>
-          <button onClick={this.handleSubmit}>Next</button>
-        </Router>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">How are you feeling today?</FormLabel>
+          <RadioGroup row aria-label="feeling" name="feeling" onChange={(event) => this.handleChange(event, 'feeling')}>
+            <FormControlLabel value="1" control={<Radio />}
+              labelPlacement="bottom" label="Awful" />
+            <FormControlLabel value="2" control={<Radio />}
+              labelPlacement="bottom" label="Not good" />
+            <FormControlLabel value="3" control={<Radio />}
+              labelPlacement="bottom" label="OK" />
+            <FormControlLabel value="4" control={<Radio />}
+              labelPlacement="bottom" label="Good" />
+            <FormControlLabel value="5" control={<Radio />}
+              labelPlacement="bottom" label="Great!" />
+          </RadioGroup>
+        </FormControl>
+        <IconButton size="large" color="primary"
+          onClick={this.handleSubmit}>
+          <NavigateNextRoundedIcon fontSize="large" />
+        </IconButton>
       </div>
     );
   }

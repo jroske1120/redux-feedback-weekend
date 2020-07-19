@@ -9,6 +9,7 @@ import _3Support from '../_3Support/_3Support';
 import _4Comments from '../_4Comments/_4Comments';
 import _5Review from '../_5Review/_5Review';
 import Admin from '../Admin/Admin';
+import Header from '../Header/Header';
 
 
 
@@ -17,13 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-        </header>
-
-        <Router>
-        <Link to="/feeling">Start your Feedback</Link>
-        </Router>
+        <Header />
         
         <Router>
           {/* <Route exact path="/form" component={Form} /> */}

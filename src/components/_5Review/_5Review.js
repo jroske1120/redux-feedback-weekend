@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../App/App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
+import Button from '@material-ui/core/Button';
 
 class _5Review extends Component {
 
@@ -12,7 +14,7 @@ class _5Review extends Component {
       feeling: feedback.feeling,
       understanding: feedback.understanding,
       support: feedback.support,
-      comment: feedback.comment,
+      comments: feedback.comments,
     }//end customerr
     console.log('LOOK HERE, CUSTOMER POST:', feedbackToPost)
     axios({
@@ -32,16 +34,14 @@ class _5Review extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h4><i>Review</i></h4>
-        </header>
-        <table>
+      <section>  
+      <table>
           <thead>
             <tr>
-              <th>-Your Feeling-</th>
-              <th>-Your Understanding-</th>
-              <th>-Your Support-</th>
-              <th>-Your Comment-</th>
+              <th>Your Feeling</th>
+              <th>Your Understanding</th>
+              <th>Your Support</th>
+              <th>Your Comment</th>
             </tr>
           </thead>
           <tbody>
@@ -55,17 +55,19 @@ class _5Review extends Component {
               <td>
                 {this.props.reduxState.feedbackReducer.support}
               </td>
-              <td>
-                {this.props.reduxState.feedbackReducer.comment}
+              <td className="leftAlign">
+                {this.props.reduxState.feedbackReducer.comments}
               </td>
             </tr>
           </tbody>
         </table>
-
-        <button onClick={this.handleSubmit}>Submit</button>
-        <Router>
-          <button><Link to="/comment">Back</Link></button>
-        </Router>
+        </section>
+        <Button variant="contained" size="small" color="primary">
+        <Link to="/comment">Back</Link>
+        </Button>
+        <span className="space-span"></span>
+        <Button variant="contained" size="small" color="primary"
+         onClick={this.handleSubmit}>Submit</Button>
       </div>
     );
   }

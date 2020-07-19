@@ -1,0 +1,48 @@
+section:nth-of-type(odd) {
+  /* background-color: #FFD4CA; */
+  background-color: #f7f4ee;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section {
+  border-radius: 0.5em;
+  box-shadow: 3px 4px 5px;
+  padding: 1.5em;
+  margin: 1em;
+}
+
+/***********   TABLES   ***********/
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.5%;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #e6eadc;
+}
+
+thead tr {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.leftAlign {
+  text-align: left;
+}

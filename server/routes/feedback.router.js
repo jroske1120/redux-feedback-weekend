@@ -11,7 +11,7 @@ feedbackRouter.post('/', (req, res) => {
     let queryString = `INSERT INTO "feedback" ( "feeling", "understanding", "support", "comments", "date" ) 
         VALUES ( $1, $2, $3, $4, current_date );`;
     pool.query(queryString,
-        [feedback.feeling, feedback.understanding, feedback.support, feedback.comment ]).then((result) => {
+        [feedback.feeling, feedback.understanding, feedback.support, feedback.comments ]).then((result) => {
             res.send(result.rows);
         }).catch((err) => {
             console.log(err);
