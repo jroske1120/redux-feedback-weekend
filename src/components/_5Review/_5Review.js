@@ -65,6 +65,7 @@ class _5Review extends Component {
         <Button variant="contained" size="small" color="primary">
         <Link to="/comment">Back</Link>
         </Button>
+        <span className="space-span"></span>
         <Button variant="contained" size="small" color="primary"
          onClick={this.handleSubmit}>Submit</Button>
       </div>

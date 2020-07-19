@@ -38,11 +38,6 @@ class _4Comments extends Component {
     return (
       <div className="App">
           <h4><i>Any comments you want to leave?</i></h4>
-        <Router>
-          <Button variant="contained" size="small" color="primary">
-            <Link to="/support">Back</Link>
-            </Button>
-        </Router>
         <TextField
           id="filled-multiline-static"
           label="Comment"
@@ -51,6 +46,13 @@ class _4Comments extends Component {
           onChange={(event) => this.handleChange(event, 'comments')}
           variant="filled"
         />
+        <br></br>
+                <Router>
+          <Button variant="contained" size="small" color="primary">
+            <Link to="/support">Back</Link>
+            </Button>
+        </Router>
+        <span className="space-span"></span>
         <Button variant="contained" size="small" color="primary"
         onClick={this.handleSubmit}>Review</Button>
 
