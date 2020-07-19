@@ -40,6 +40,7 @@ This is Joel Roske's full stack React/Redux App for anonymous feedback. A user p
 2. Date of submission is available here, as well as the option to Flag a comment for review. If flagged, the flag icon will change from blue to red (axios PUT request).
 3. Admin also has the option to delete feedback from the server. They are asked to confirm, and feedback is deleted upon confirmation (axios DELETE request).
 ![Joel Roske Redux Feedback](wireframes/Redux-feedback-admin.png)
+
 ## Built With
 
 The full stack! React, Redux, JSX, Javascript, CSS, Axios, Node, Express, Material UI, and Postgres with SQL.
