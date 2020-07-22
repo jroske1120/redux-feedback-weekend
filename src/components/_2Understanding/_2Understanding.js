@@ -13,36 +13,23 @@ import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded'
 
 class _2Understanding extends Component {
 
-  state = {
-    Feedback: {
-      understanding: ''
-    }
-  }
-
+  
   // handle any change in the answer
   handleChange = (event, type) => {
-    console.log(event.target.value)
-    this.setState({
-      Feedback: {
-        ...this.state.Feedback,
-        [type]: event.target.value
+    this.props.dispatch({
+      type: "ADD_FEEDBACK",
+      payload: {
+          understanding: event.target.value
       }
-
     })
   }
 
   handleSubmit = () => {
     // conditional that will only advance to next page
     // if a response is provided
-    if (this.state.Feedback.understanding === "") {
+    if (this.props.reduxState.feedbackReducer.understanding === 0) {
       alert('Please select a number!')
     } else {
-      console.log('in handleSubmit', this.state.Feedback.understanding)
-      // sends response to feedbackReducer
-      this.props.dispatch({
-        type: "ADD_FEEDBACK",
-        payload: this.state.Feedback
-      })
       this.props.history.push('/support');
     }
   }
@@ -64,7 +51,8 @@ class _2Understanding extends Component {
             </FormLabel>
           <RadioGroup row
             aria-label="understanding" name="understanding"
-            onChange={(event) => this.handleChange(event, 'understanding')}>
+            onChange={this.handleChange} 
+            value={this.props.reduxState.feedbackReducer.understanding}>
             <FormControlLabel value="1" control={<Radio />}
               labelPlacement="bottom" label="Not at all" />
             <FormControlLabel value="2" control={<Radio />}
@@ -78,10 +66,11 @@ class _2Understanding extends Component {
           </RadioGroup>
         </FormControl>
         <IconButton
-          size="large" color="primary"
           onClick={this.handleSubmit}>
           <NavigateNextRoundedIcon
-            fontSize="large" />
+            fontSize="large"
+            color="primary"
+            />
         </IconButton>
       </div>
     );

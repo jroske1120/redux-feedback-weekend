@@ -13,39 +13,27 @@ import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded'
 
 class _3Support extends Component {
 
-  state = {
-    Feedback: {
-      support: ''
-    }
-  }
-
+  
   // handle any change in the answer
   handleChange = (event, type) => {
-    console.log(event.target.value)
-    this.setState({
-      Feedback: {
-        ...this.state.Feedback,
-        [type]: event.target.value
+    this.props.dispatch({
+      type: "ADD_FEEDBACK",
+      payload: {
+        support: event.target.value
       }
-
     })
   }
 
   handleSubmit = () => {
     // conditional that will only advance to next page
     // if a response is provided
-    if (this.state.Feedback.support === "") {
+    if (this.props.reduxState.feedbackReducer.support === 0) {
       alert('Please select a number!')
     } else {
-      console.log('in handleSubmit', this.state.Feedback.support)
-      // sends response to feedbackReducer
-      this.props.dispatch({
-        type: "ADD_FEEDBACK",
-        payload: this.state.Feedback
-      })
       this.props.history.push('/comment');
     }
   }
+
 
   render() {
     return (
@@ -64,7 +52,8 @@ class _3Support extends Component {
             How well do you feel supported?
             </FormLabel>
           <RadioGroup row aria-label="support" name="support"
-            onChange={(event) => this.handleChange(event, 'support')}>
+            onChange={this.handleChange} 
+            value={this.props.reduxState.feedbackReducer.support}>
             <FormControlLabel value="1" control={<Radio />}
               labelPlacement="bottom" label="Not at all" />
             <FormControlLabel value="2" control={<Radio />}

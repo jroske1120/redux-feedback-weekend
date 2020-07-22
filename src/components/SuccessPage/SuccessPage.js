@@ -9,7 +9,7 @@ class SuccessPage extends Component {
     return (
       <div className="App">
         <img id="success" 
-        src="https://lh3.googleusercontent.com/proxy/N_hsQzbsPL9c7QEfw1DlFV_RZMl-VnKzGfNRHdfLENqNoahtELN97Xxm9CiKRZfJsoFEO7nK6f5pWJxA0EV77jtd8GCRMdQY"
+        src="https://www.clker.com/cliparts/f/Q/9/7/2/u/success-banner-hi.png"
         alt="Success Banner"
         width="50%"/>
           <br></br>

@@ -8,34 +8,20 @@ import IconButton from '@material-ui/core/IconButton';
 import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
 
 class _4Comments extends Component {
-  state = {
-    Feedback: {
-      comments: ''
-    }
-  }
-
+ 
   // handle any change in the answer
-  handleChange = (event, type) => {
-    console.log(event.target.value)
-    this.setState({
-      Feedback: {
-        ...this.state.Feedback,
-        [type]: event.target.value
-      }
+ handleChange = (event, type) => {
+  this.props.dispatch({
+    type: "ADD_FEEDBACK",
+    payload: {
+        comments: event.target.value
+    }
+  })
+}
 
-    })
-  }
-
-  handleSubmit = () => {
-    // No response ok, don't need conditional
-    console.log('in handleSubmit', this.state.Feedback.comments)
-    // sends response to feedbackReducer
-    this.props.dispatch({
-      type: "ADD_FEEDBACK",
-      payload: this.state.Feedback
-    })
+handleSubmit = () => {
     this.props.history.push('/review');
-  }
+}
 
   render() {
     return (
@@ -55,7 +41,8 @@ class _4Comments extends Component {
           label="Comment"
           multiline
           rows={4}
-          onChange={(event) => this.handleChange(event, 'comments')}
+          onChange={this.handleChange} 
+          value={this.props.reduxState.feedbackReducer.comments}
           variant="filled"
         />
         <IconButton

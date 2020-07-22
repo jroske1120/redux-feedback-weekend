@@ -11,36 +11,23 @@ import IconButton from '@material-ui/core/IconButton';
 
 class _1Feeling extends Component {
 
-  state = {
-    Feedback: {
-      feeling: ''
-    }
-  }
 
   // handle any change in the answer
   handleChange = (event, type) => {
-    console.log(event.target.value)
-    this.setState({
-      Feedback: {
-        ...this.state.Feedback,
-        [type]: event.target.value
+    this.props.dispatch({
+      type: "ADD_FEEDBACK",
+      payload: {
+          feeling: event.target.value
       }
-
     })
   }
 
   handleSubmit = () => {
     // conditional that will only advance to next page
     // if a response is provided
-    if (this.state.Feedback.feeling === "") {
+    if (this.props.reduxState.feedbackReducer.feeling === 0) {
       alert('Please select a number!')
     } else {
-      console.log('in handleSubmit', this.state.Feedback.feeling)
-      // sends response to feedbackReducer
-      this.props.dispatch({
-        type: "ADD_FEEDBACK",
-        payload: this.state.Feedback
-      })
       this.props.history.push('/understanding');
     }
   }
@@ -53,7 +40,8 @@ class _1Feeling extends Component {
             How are you feeling today?
             </FormLabel>
           <RadioGroup row aria-label="feeling" name="feeling"
-            onChange={(event) => this.handleChange(event, 'feeling')}>
+            onChange={this.handleChange} 
+            value={this.props.reduxState.feedbackReducer.feeling}>
             <FormControlLabel value="1" control={<Radio />}
               labelPlacement="bottom" label="Awful" />
             <FormControlLabel value="2" control={<Radio />}
@@ -66,7 +54,7 @@ class _1Feeling extends Component {
               labelPlacement="bottom" label="Great!" />
           </RadioGroup>
         </FormControl>
-        <IconButton size="large" color="primary"
+        <IconButton color="primary"
           onClick={this.handleSubmit}>
           <NavigateNextRoundedIcon fontSize="large" />
         </IconButton>
